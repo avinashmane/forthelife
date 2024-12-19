@@ -1,6 +1,6 @@
 ---
-title: 'PCMC Runners'
-description: 'Best experience and best value'
+title: 'PCMC Athletics'
+description: 'Professional Sports event management'
 ---
 
 

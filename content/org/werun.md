@@ -1,15 +1,13 @@
 ---
-title: 'PCMC Runners'
-description: 'Best experience and best value'
+title: 'We Run '
+description: 'To celebrate the Woman Empowerment...WE ...we run!'
 ---
+
+
 ::hero
-PCMC Runners: Where you are always a winner!
-<img src="/img/ml_logo.png" width="200px">
+Exclusive event for women!
 
 #description
-Our website is https://pcmcrunners.in
+Our website is https://werun.info
 
 ::
-
-
-<select :options="['1','m2','4']"></select>

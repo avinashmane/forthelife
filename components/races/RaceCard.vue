@@ -1,15 +1,29 @@
 <template>
-    <Card :class="props.type=='mini'?'w-40':'w-full'">
+    <Card :class="' '+(props.type=='mini'?'w-40':'w-full')" :pt="{ root:{ class:'bg-slate-50' }}">
         <template #header>
+            <div class="relative max-w-xl mx-auto ">
+                <img :src="imgLink(race.coverPage)" class="h-36 w-full object-cover rounded-xl" alt="Cover Image">
+                <div class="absolute inset-0 bg-gradient-to-b from-slate-900 from-opacity-80 rounded-xl"></div>
+                <div class="absolute inset-0 flex flex-col justify-top p-1">
+                    <h2 class="text-white text-xl font-bold">{{ race.Name }}</h2>
+                    <div >
+                        <span class="text-white font-bold">{{ race.Date }}</span><br/>
+                        <span class="text-sm text-white text-sm">{{ race.Location }}
+                    </span></div>
 
-            <h1 class="text-lg mx-1 hover:text-clip">{{ race.Name }}</h1>
-            <img :src="imgLink(race.coverPage)" class="object-cover h-48 mx-auto "/>
+                </div>
+            </div>
+            
+            <!-- <img :src="imgLink(race.coverPage)" class="object-cover h-48 mx-auto "/> -->
+            <!-- </div> -->
         </template>
         <template #content>
         <!-- mini -->
-        <div v-if="props.type=='mini'" v-for="f in ['Date', 'Location']"
-            class="text-sm">
-            {{ race[f] }}
+        <div v-if="props.type=='mini'" class="flex flex-wrap w-full ">
+            <span v-for="f in race.status"
+                class="mx-1 px-1 bg-blue-200 rounded-full text-sm">
+                {{ f }}
+            </span>
         </div>
         <!-- full -->
         <div v-else>
@@ -26,17 +40,19 @@
 
         </div>
         </template>
+
         <template #footer>
-            <Button v-if="props.type=='mini'">
-                <NuxtLink :to="`/races/${race.id}`">{{ race?.Name }} </NuxtLink>
-            </Button>
-            <Button v-else>
-                <a :href="`http://run-pix.web.app/e/${race.id}`" target="_blank">
-                    Edit </a>
-            </Button>
-            
-        </template>
-    </Card>
+            <div class="bottom-0">
+                <Button v-if="props.type=='mini'" >
+                    <NuxtLink :to="`/races/${race.id}`" class="">View </NuxtLink>
+                </Button>
+                <Button v-else>
+                    <a :href="`http://run-pix.web.app/e/${race.id}`" target="_blank">
+                        Edit </a>
+                </Button>
+            </div>
+            </template>
+        </Card>
 </template>
 
 <script setup>

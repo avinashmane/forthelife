@@ -4,6 +4,7 @@ import {MyPreset} from './myTheme'
 
 import {firebaseConfig} from './firebaseConfig'
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import path from 'node:path'
 
 export default defineNuxtConfig({
 
@@ -18,10 +19,24 @@ export default defineNuxtConfig({
   ],
 
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: false }
   },
 
   content: {
+    sources: {
+      blog: {
+        driver: "fs",
+        prefix: "/blog",
+        base: path.resolve(__dirname, "articles")
+      },
+      github: {
+        driver: "github",
+        prefix: "/notes",
+        repo: "oneminch/notes",
+        branch: "main",
+        dir: "Glossary"
+      }
+    },
     api: {
       baseURL: '/api/_my_content'
     },

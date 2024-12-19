@@ -20,24 +20,29 @@
             <template #end>
                 <div class="flex items-center gap-2">
                     <!-- <InputText placeholder="Search" type="text" class="w-32 sm:w-auto" /> -->
-                    <Avatar :image="auth?.currentUser?.photoURL || '/img/for-the-life.png' " shape="circle" />  
+                    <Avatar :image="auth?.currentUser?.photoURL || '/img/for-the-life.png' " shape="circle" alt="Profile"/>  
                     <!-- https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" -->
                 </div>
             </template>
         </Menubar>
     </div>
-    <!-- <pre>{{ contentNavToMenu(navigation) }}</pre> -->
+    <!-- <pre>{{ navigation }}</pre> -->
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { getAuth } from 'firebase/auth'
-import {mapKeys} from 'lodash-es'
+import {mapKeys,find} from 'lodash-es'
 const contentNavToMenuMap={
     '_path':'to',
     'title':'label'
 }
-const contentNavToMenu=(x)=>x.map(entry=>mapKeys(entry,(v,k)=>(contentNavToMenuMap?.[k] || k)))
+const contentNavToMenu=(x,path=null)=>{
+    if (path) { //"_path": "/org",
+        return find(x,{_path:path})?.children.map(entry=>mapKeys(entry,(v,k)=>(contentNavToMenuMap?.[k] || k)))
+    } else 
+        return x.map(entry=>mapKeys(entry,(v,k)=>(contentNavToMenuMap?.[k] || k)))
+}
 const auth = ref(getAuth())
 
 
@@ -57,10 +62,10 @@ const items = ref([
         to: '/races'
     },
     {
-        label: 'Docs',
+        label: 'Organizations',
         icon: 'pi pi-document',
-        badge: 3,
-        items: contentNavToMenu(navigation.value)
+        badge: 2,
+        items: contentNavToMenu(navigation.value,'/org')
     },
     {
         label: 'About',
