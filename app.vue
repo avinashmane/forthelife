@@ -1,6 +1,11 @@
 <template>
-  <NuxtLayout>
+    <Nav class="w-full"/>
+    <NuxtLoadingIndicator />
     <NuxtPage />
-  </NuxtLayout>
+    <Footer />
 </template>
+
+<script setup>
+
+</script>
 

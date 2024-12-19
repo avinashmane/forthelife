@@ -1,12 +1,15 @@
-# Nuxt Content
-
-This page corresponds to the `/` route of your website. You can delete it or create another file in the `content/` directory.
-
-Try to navigate to [/about](/about). These 2 pages are rendered by the `pages/[...slug].vue` component.
-
 ---
+title: 'For the. Life'
+description: 'Landing page for fitness and community'
+---
+::hero
+<img src="/img/finish-what-you-start.jpg" class="max-w-96 m-4 mx-auto"/>
 
-Look at the [Content documentation](https://content.nuxtjs.org/) to learn more.
+#description
+Welcome to the landing page of [ForThe.Life]{.mx-2 .bg-blue-200 .rounded-full} website.  Please select one of the following areas.
+<img src="/img/welcome.png" class="max-w-96 m-4 mx-auto"/>
+::
 
 
-<Button label="Verify" >Test Verify</Button>
+::area-list
+::

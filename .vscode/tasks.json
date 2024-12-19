@@ -1,0 +1,30 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "echo",
+			"type": "shell",
+			"command": "echo Hello"
+		},
+		{
+			"label": "Run tests",
+			"type": "shell",
+			"command": "bash",
+			"windows": {
+			  "command": ".\\scripts\\test.cmd"
+			},
+			"group": "test",
+			"presentation": {
+			  "reveal": "always",
+			  "panel": "new"
+			},
+		},
+		{
+			"label" : "myyyyyy",
+			"type": "shell",
+			"command": "/bin/bash" ,
+			"args": ["-c", "pnpm run dev"]
+		}
+
+	]
+}

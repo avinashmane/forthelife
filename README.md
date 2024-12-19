@@ -11,7 +11,9 @@ link forwarded
 
 
 
-# Content v2 Minimal Starter
+# Development
+
+## Google Project: run-pix
 
 Look at the [Content documentation](https://content.nuxt.com/) to learn more.
 

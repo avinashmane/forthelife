@@ -1,10 +1,14 @@
 <template>
-    <div>
-      <p>Some default layout content shared across all pages</p>
-      <slot />
-      
-        <Button label="Verify" />
+    <div >
+
+        <div class="m-4">
+            <slot />
+        </div>
 
     </div>
 </template>
+
+<script setup>
+import Menu from 'primevue/menu';
+</script>
   
