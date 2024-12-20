@@ -10,6 +10,10 @@
         <!-- {{ race }} -->
     </div>
     {{ auth.currentUser }}
+
+    {{ count }}
+    {{ meta }}
+
 </template>
 
 <script setup>
@@ -57,4 +61,22 @@ const db = useFirestore()
 const { $racesRef } = useNuxtApp();
 
 const races = useCollection($racesRef);
+
+// runpixDocsGH.
+
+const { data: count } = await useAsyncData("my-notes", async () =>{
+    console.log('home1')
+    return runpixDocsGH.keys('/runpixDocs')
+        .then(x=>{
+            console.log("home",x);
+            return x
+    })
+})
+const {data: meta} = await useAsyncData(async ()=>{
+    console.log('home2')
+    return await runpixDocsGH.getKeys()
+// return await runpixDocsGH.get('/runpixDocs/README.md')
+        // .then(console.warn);
+})
+
 </script>

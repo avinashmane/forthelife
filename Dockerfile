@@ -26,6 +26,7 @@ FROM node:18-slim
 # RUN pnpm run build
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+ENV NODE_ENV="production" 
 RUN corepack enable
 
 # Create and change to the app directory.
@@ -51,7 +52,7 @@ RUN ls
 RUN ls /usr/bin
 # RUN /usr/bin/apt install pnpm
 # RUN npm install --production --omit=dev --loglevel verbose --force
-RUN pnpm install
+RUN pnpm install --production --loglevel verbose 
 
 # Run the web service on container startup.
 ENTRYPOINT [ "node", "./server/index.mjs" ]

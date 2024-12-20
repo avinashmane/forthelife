@@ -3,11 +3,40 @@ title: 'PCMC Runners'
 description: 'Best experience and best value'
 ---
 
+# Welcome to PCMC Runners!
+
+ALL YOU NEED FOR RUNNING IS INSIDE YOU! So why wait? Get active!
+
+We have **proven training approach**.  You can review it at http://training.pcmcrunners.in .PCMC Runners provides strength training sessions at PCMC Runners locations.
+
+We offer BEST VALUE BEST EXPERIENCE race events in PCMC, because we believe in #BurnFatNotFuel. My Choice is a smart choice for you and environment.
+
+## Mileage League
+Mileage challenge encourages all fitness activities at all levels to keep the friendly competition alive at PCMC.
+
+::div{.mt-20}
+## Links
+<!--more-->
+- Facebook Group: https://fb.me/groups/pcmcrunners
+- Page: https://www.facebook.com/pcmcrunners
+- WhatsApp: https://pcmcrunners.in/to/whatsapp
+- FB messanger: m.me/pcmcrunners
+- Instagram: instagram.com/pcmcrunners
+- Youtube: https://www.youtube.com/@pcmcrunners5429
+- Strava Club: https://www.strava.com/clubs/pcmcrunners
+
+- What is my Bib?: https://pcmcrunners.in/#/services
+- Registration: https://pcmcrunners.in/to/registration
+- Training: http://training.pcmcrunners.in
+- For Anything else: https://PCMCRunners.in
+
+::div{.mt-20}
+
 
 
 ::hero
-PCMC Runners: Where you are always a winner!
-<img src="/img/ml_logo.png" width="200px">
+Where you are always a winner, with PCMC runners!
+<img src="/img/pcmcrunners_logo.png" width="200px">
 
 #description
 Our website is https://pcmcrunners.in

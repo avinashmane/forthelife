@@ -11,10 +11,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "start": "PORT=3001 HOST=0.0.0.0 node .output/server/index.mjs",
-    "--docker--": "--------------------------------",
+    "--docker--": "----------------------------------env-vars-file=./.env.yaml ",
     "d:build": "docker build -t gcr.io/run-pix/runpix-nuxt . ",
     "d:push": "docker push gcr.io/run-pix/runpix-nuxt",
-    "d:test": "docker run -it -p 8080:8080 --name runpix-nuxt gcr.io/run-pix/runpix-nuxt  "
+    "d:test": "docker run -it -p 8080:8080 --name runpix-nuxt gcr.io/run-pix/runpix-nuxt ",
+    "d:deploy": "gcloud run deploy forthelife --image=gcr.io/run-pix/runpix-nuxt --cpu=1 --max-instances=10 --memory=256M --min-instances=0 --allow-unauthenticated --description=\"ForThe Life RunPix Nuxt\" --region=us-central1"
   },
   "dependencies": {
     "@nuxt/content": "^2.13.4",
@@ -23,14 +24,15 @@
     "nuxt": "^3.14.159",
     "nuxt-auth-utils": "^0.5.2",
     "nuxt-vuefire": "^1.0.4",
-    "primevue": "^4.2.1"
+    "primevue": "^4.2.1",
+    "unstorage": "^1.14.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@primevue/nuxt-module": "^4.2.1",
     "@primevue/themes": "^4.2.1"
   },
-  "_deletedDependencies":{
+  "_deletedDependencies": {
     "vue": "^3.5.12"
   }
 }

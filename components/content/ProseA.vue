@@ -2,7 +2,7 @@
   <NuxtLink
     :href="props.href"
     :target="props.target"
-    class="text-italic underline-offset-1"
+    class="text-italic text-blue-800 underline-offset-1"
   >
     <slot />
   </NuxtLink>

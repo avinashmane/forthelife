@@ -6,6 +6,9 @@
                 <ClientOnly>
                     <img :src="getSiteLogo()" class="h-8"/>
                 </ClientOnly>
+                <DevOnly>
+                    <a href="localhost:3000/">🏠</a>
+                </DevOnly>
                 
             </template>
             <template #item="{ item, props, hasSubmenu, root }">
@@ -32,7 +35,7 @@
 <script setup>
 import { ref } from "vue";
 import { getAuth } from 'firebase/auth'
-import {mapKeys,find} from 'lodash-es'
+import {mapKeys,find,keys} from 'lodash-es'
 const contentNavToMenuMap={
     '_path':'to',
     'title':'label'
@@ -50,7 +53,7 @@ const auth = ref(getAuth())
 const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
 
 
-const items = ref([
+const items = computed(()=>[
     {
         label: 'Home',
         icon: 'pi pi-home',
@@ -59,13 +62,15 @@ const items = ref([
     {
         label: 'Races',
         icon: 'pi pi-flag',
-        to: '/races'
+        to: '/races',
+        forSite: 'pcmcrunners'
     },
     {
         label: 'Organizations',
         icon: 'pi pi-document',
         badge: 2,
-        items: contentNavToMenu(navigation.value,'/org')
+        items: contentNavToMenu(navigation.value,'/org'),
+        forSite: 'default'
     },
     {
         label: 'About',
@@ -90,6 +95,6 @@ const items = ref([
             },
         ]
     }
-]);
+].filter(x=>!x.hasOwnProperty('forSite')||x.forSite==useHost()));
 
 </script>

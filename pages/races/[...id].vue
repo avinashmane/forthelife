@@ -28,7 +28,11 @@
           </div>
         </div>
       </template>
+      <template #empty>
+        <ProgressSpinner></ProgressSpinner>
+      </template>
     </DataView>
+   
     <!-- <RaceCard v-for="r in races" 
           :key="r.id" 
           :race="r" 

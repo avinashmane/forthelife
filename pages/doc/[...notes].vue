@@ -9,12 +9,14 @@
             </div>
     </template>
     <template #not-found>
-      <p>No notes found.</p>
+      <ProgressSpinner />
     </template>
+    
   </ContentList>
   <hr/>
   <pre>{{  notes }}</pre>
 </template>
+
   <script setup>
   const { data: notes } = await useLazyAsyncData("my-notes", () =>
     queryContent("/notes").find()
