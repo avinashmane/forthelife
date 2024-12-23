@@ -29,22 +29,23 @@
             </template>
         </Menubar>
     </div>
-    <!-- <pre>{{ navigation }}</pre> -->
+    <pre>{{ navigation }}</pre>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { getAuth } from 'firebase/auth'
 import {mapKeys,find,keys} from 'lodash-es'
+
 const contentNavToMenuMap={
     '_path':'to',
     'title':'label'
 }
 const contentNavToMenu=(x,path=null)=>{
     if (path) { //"_path": "/org",
-        return find(x,{_path:path})?.children.map(entry=>mapKeys(entry,(v,k)=>(contentNavToMenuMap?.[k] || k)))
+        return find(x,{_path:path})?.children?.map(entry=>mapKeys(entry,(v,k)=>(contentNavToMenuMap?.[k] || k)))
     } else 
-        return x.map(entry=>mapKeys(entry,(v,k)=>(contentNavToMenuMap?.[k] || k)))
+        return x?.map(entry=>mapKeys(entry,(v,k)=>(contentNavToMenuMap?.[k] || k)))
 }
 const auth = ref(getAuth())
 
@@ -66,10 +67,10 @@ const items = computed(()=>[
         forSite: 'pcmcrunners'
     },
     {
-        label: 'Organizations',
+        label: 'Domains',
         icon: 'pi pi-document',
         badge: 2,
-        items: contentNavToMenu(navigation.value,'/org'),
+        items: contentNavToMenu(navigation.value,'/subdomains'),
         forSite: 'default'
     },
     {

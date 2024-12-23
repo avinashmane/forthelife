@@ -1,10 +1,10 @@
 <template>
     <!-- https://minch.dev/blog/nuxt-content-with-remote-markdown -->
-  <ContentList path="/notes" >
+  <ContentList path="/remote/blogs" >
     <template #default="{ list }">
             <div class="p-2">
-                <a v-for="note in list" :key="note._path" :href="note._path">
-                            {{ note.title }}        
+                <a v-for="blog in list" :key="blog._path" :href="blog._path">
+                            {{ blog.title }}        
                 </a>
             </div>
     </template>

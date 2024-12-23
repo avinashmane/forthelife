@@ -1,13 +1,28 @@
 # ForThe.Life
 
-## Landing page
+## Features
+
+### Landing page for subdomain
 
 link forwarded
 
 ### explorer.forthe.
 
+## How to
 
-docker 
+
+## Development
+### Backlog
+
+* Content using Gemini
+* Blogs
+* https://seositecheckup.com/seo-audit/www.forthe.life
+
+### Technologies
+
+Vue/Nuxt, vueFire, 
+
+
 
 
 

@@ -1,5 +1,5 @@
 <template>
-    <Card :class="' '+(props.type=='mini'?'w-40':'w-full')" :pt="{ root:{ class:'bg-slate-50' }}">
+    <Card :class="' '+(props.type=='mini'?'w-40':' lg:w-[45rem] mx-auto')" :pt="{ root:{ class:'bg-slate-50' }}">
         <template #header>
             <div class="relative max-w-xl mx-auto ">
                 <img :src="imgLink(race.coverPage)" class="h-36 w-full object-cover rounded-xl" alt="Cover Image">
@@ -27,15 +27,19 @@
         </div>
         <!-- full -->
         <div v-else>
-            <div v-for="v, f in omit(race,['id','coverPage'])" class="flex w-full justify-between">
+            <div v-for="f in omit(orderOfKeys(race),['id','coverPage'])" class="flex w-full justify-between">
                 <span class="capitalize text-sm">{{ f }} :</span> 
-                <span >
-                    <a v-if="f.includes('link')" :href="linkify(v)" target="_blank" rel="noopener noreferrer">
-                        🔗<i class="pi pi-external-link"></i></a>
-                    <!-- {{ race }}  -->
-                    {{ isArray(v) ? v.join(', ') : v}}
+                <span v-if="isObject(race[f])"> 
+                    <!-- (f.includes('timestamp') || f.includes('stats')) && -->
+                    <div v-for="(ts,k) in race[f]">
+                        {{ k }}: {{ ts }}
+                    </div>
                 </span>
-            
+                <span v-else>
+                    <a v-if="f.includes('link')" :href="linkify(race[f])" target="_blank" rel="noopener noreferrer">
+                        🔗<i class="pi pi-external-link"></i></a>
+                    {{ isArray(race[f]) ? race[f].join(', ') : race[f]}}
+                </span> 
             </div>
 
         </div>
@@ -60,7 +64,8 @@ const props = defineProps({
     race: Object,
     type: String
 })
-import {omit,isArray,random} from 'lodash-es'
+import {omit,isArray,isObject,random,keys,orderBy} from 'lodash-es'
+const orderOfKeys=(race,_order=['Name','Date','Location'])=>orderBy(keys(race),x=>-_order.indexOf(x),'asc')
 
 const imgLink=(x) => x ? `https://storage.googleapis.com/run-pix.appspot.com/processed/${race.id}/${x}`
                        : `/img/raceCover_${random(4)}.jpg`

@@ -11,20 +11,30 @@
 			"type": "shell",
 			"command": "bash",
 			"windows": {
-			  "command": ".\\scripts\\test.cmd"
+				"command": ".\\scripts\\test.cmd"
 			},
 			"group": "test",
 			"presentation": {
-			  "reveal": "always",
-			  "panel": "new"
-			},
+				"reveal": "always",
+				"panel": "new"
+			}
 		},
 		{
-			"label" : "myyyyyy",
+			"label": "myyyyyy",
 			"type": "shell",
-			"command": "/bin/bash" ,
-			"args": ["-c", "pnpm run dev"]
+			"command": "/bin/bash",
+			"args": [
+				"-c",
+				"pnpm run dev"
+			]
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "nuxt build"
 		}
-
 	]
 }

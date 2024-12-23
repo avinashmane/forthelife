@@ -1,13 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // import PrimeVue from 'primevue/config';
 import {MyPreset} from './myTheme'
-
+import ViteYaml from '@modyfi/vite-plugin-yaml';
 import {firebaseConfig} from './firebaseConfig'
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import path from 'node:path'
+// import path from 'node:path'
 
 export default defineNuxtConfig({
-
+  vite:{
+    plugins: [
+      ViteYaml(), // you may configure the plugin by passing in an object with the options listed below
+    ],},
   devtools: { enabled: true },
   
   modules: [
@@ -15,26 +18,40 @@ export default defineNuxtConfig({
     '@primevue/nuxt-module',
     '@nuxtjs/tailwindcss',
     'nuxt-vuefire',
-    'nuxt-auth-utils'
+    'nuxt-auth-utils',
   ],
-
+  // plugins: [
+  //   ViteYaml(), // you may configure the plugin by passing in an object with the options listed below
+  // ],
   routeRules: {
     '/': { prerender: false }
   },
-
+  rules: [
+    {
+      test: /\.ya?ml$/,
+      use: 'yaml-loader'
+    }
+  ],
   content: {
     sources: {
-      blog: {
-        driver: "fs",
-        prefix: "/blog",
-        base: path.resolve(__dirname, "articles")
-      },
-      github: {
+      // blog: {
+      //   driver: "fs",
+      //   prefix: "/blog",
+      //   base: path.resolve(__dirname, "articles")
+      // },
+      // github: {
+      //   driver: "github",
+      //   prefix: "/notes/",
+      //   repo: "oneminch/notes",
+      //   branch: "main",
+      //   dir: "Glossary"
+      // },
+      github1: {
         driver: "github",
-        prefix: "/notes",
-        repo: "oneminch/notes",
-        branch: "main",
-        dir: "Glossary"
+        prefix: "/remote",
+        repo: "avinashmane/forthelife-content",
+        branch: "master",
+        dir: "/"
       }
     },
     api: {
@@ -77,9 +94,8 @@ export default defineNuxtConfig({
     // auth: true,
     config: firebaseConfig
   },
-
   css: [],
   compatibilityDate: '2024-11-08'
 })
 
-'primevue/resources/themes/aura-light-green/theme.css'
+// 'primevue/resources/themes/aura-light-green/theme.css'

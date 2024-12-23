@@ -1,0 +1,60 @@
+# this file is use fore directing
+# type: content|vue|remotecontent|forwardURL  
+pcmcrunners:
+  name: PCMCRunners
+  description: Best community for Runner in PCMC
+  image: /img/pcmcrunners_logo.png
+  to: /subdomains/pcmcrunners
+  menus: races,about
+fit:
+  name: Fit.ForThe.Life
+  description: Best community for Runner in PCMC
+  image: /img/mileageleague_logo.png
+  to: /remote/subdomains/mileageleague
+werun:
+  name: We Run
+  description: Annual fitness event exclusively for women and children
+  image: /img/werun_logo.png
+  to: /remote/subdomains/werun
+
+pcmcathletics:
+  name: PCMC Athletics
+  description: Sporting event management organization
+  image: /img/pcmcathletics_logo.png
+  to: /remote/subdomains/pcmcathletics
+mileageleague:
+  name: Mileage League
+  description: Online endurage athlete platform for leaderboards, performance statistics, accomplishments, certifications
+  image: /img/mileageleague_logo.png
+  to: /subdomains/mileageleague
+runpix:
+  name: RunPix
+  description: Online endurage athlete platform for leaderboards, performance statistics, accomplishments, certifications
+  image: /img/runpix_logo.png
+  to: https://run-pix.web.app
+  skipNav: true
+  type: forwardURL
+fortraider:
+  name: For Raider
+  description: Hiking platform
+  image: /img/fortraider_logo.png
+  to: https://fort-raider.web.app
+  skipNav: true
+  type: forwardURL
+digitaltwin:
+  name: Digital Twin
+  description: Internet of Things for the modern world
+  image: /img/digitaltwin_logo.png
+  to: digitaltwin.vue
+
+insideathlete:
+  name: Inside Athlete
+  description: Fitness studio to sculpt your body with personal attention to bring out the best of Inside Athlete
+  image: /img/mileageleague_logo.png
+  to: /subdomains/insideathlete
+
+blogs:
+  name: Blogs
+  description: Blogs
+  image: /img/mileageleague_logo.png
+  to: /blogs
