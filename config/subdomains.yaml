@@ -1,5 +1,12 @@
 # this file is use fore directing
-# type: content|vue|remotecontent|forwardURL  
+# type: content|remotecontent|forwardURL  #|vue not possible
+default:
+  name: For The Life
+  description: Your search is over DONT SEARCH ANYMORE One stop shop for all things for the life This is integrated website for healthy lifestyle
+  keywords: lifestyle, fitness, endurance, health, active, run, running, triathlon
+  image: /img/for-the-life.png
+  to: /
+
 pcmcrunners:
   name: PCMCRunners
   description: Best community for Runner in PCMC
@@ -15,6 +22,7 @@ werun:
   name: We Run
   description: Annual fitness event exclusively for women and children
   image: /img/werun_logo.png
+  keywords: woman, empowerment, internationalwomansday, iwd, women, girlpower, womenlifestyle, fitness, endurance, health, active, run, running, triathlon
   to: /remote/subdomains/werun
 
 pcmcathletics:
@@ -50,6 +58,7 @@ digitaltwin:
 insideathlete:
   name: Inside Athlete
   description: Fitness studio to sculpt your body with personal attention to bring out the best of Inside Athlete
+  keywords: strength, training, discipline, lifestyle, fitness, endurance, health, active, run, running, triathlon
   image: /img/mileageleague_logo.png
   to: /subdomains/insideathlete
 
@@ -58,3 +67,4 @@ blogs:
   description: Blogs
   image: /img/mileageleague_logo.png
   to: /blogs
+  type: redirect

@@ -6,44 +6,73 @@
     </DevOnly> -->
 
     <!-- {{subDomain}} -->
-    <SubDomain v-if="site=='default'" />
+    <div v-if="site == 'default'">
+        <h1 class="text-2xl">Domains</h1>
+        <SubDomain />
+    </div>
 
-    <iframe v-else-if="subDomains[site].type=='forwardURL'" class="w-full h-screen" :src="subDomains[site]?.to"></iframe>
-        
-    <div v-else class="m-4">
-        <!-- {{ navigation }} -->
-        <ContentDoc :path="`/remote/subdomains/${site}`" >
-    
+
+    <iframe v-else-if="subDomain.type == 'forwardURL'" class="w-full h-screen" :src="subDomain.to"></iframe>
+    <div v-else-if="subDomain.type == 'redirect'" v-on="navigateTo(subDomain.to)">Redirecting to {{ subDomain.to }}</div>
+
+    <!-- <div v-else-if="subDomain.type == 'localContent'" class="m-4">
+        {{ site }}
+        <ContentDoc :path="`/remote/subdomains/${site}`">
+
+            <template #default="{ doc }">
+                ss
+                <ContentRenderer :value="doc" />
+            </template>
+
+            <template #not-found>
+                {{ site }}sdsd
+            </template>
+        </ContentDoc>
+    </div> -->
+    <div v-else class="w-full h-screen" :src="subDomain.to">
+        <ContentDoc :path="`${subDomain.to}`">
+
             <template #default="{ doc }">
                 <ContentRenderer :value="doc" />
             </template>
+
             <template #not-found>
-
-                <ContentDoc :path="`/subdomains/${useHost()}`" >
-                    <template #default="{ doc }">
-                        <ContentRenderer :value="doc" />
-                    </template>
-
-                    <template #not-found>
-                        <h1>{{ `/remote/subdomains/${useHost()}` }} document not found</h1>
-                    </template>
-                </ContentDoc>        
+                {{ subDomain }}
+                <h2>{{ subDomain.to }} document not found for {{ useRequestURL() }}</h2>
             </template>
         </ContentDoc>
     </div>
-    <div>
-    </div>
-
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 import config from '../config';
-const site=ref(useHost())
-const subDomain=ref(config.subDomains[site.value]||{type:'content'})
+const site = ref(useHost())
+const subDomain = ref(config.subDomains[site.value] || { type: 'content' })
 // import _subDomains from '~/config/subdomains.yaml'
-const subDomains=ref(config.subDomains)
+const subDomains = ref(config.subDomains)
 // const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
-debug(config.subDomains,useHost())
+// debug(config.subDomains,useHost())
+
+useHead({
+    title: subDomain.value.title,
+    meta: [
+        { name: 'description', content: subDomain.value.description },
+        { name: "google-site-verification", content: "Av7j1M46bxy_jgJ35Fe5r6ANfgFBkycLBSNkL5Pvom8" },
+        { name: "keywords", content: subDomain.value.keywords || subDomains.value['default'].keywords }
+    ],
+
+})
+
+useSeoMeta
+    ({
+        title: subDomain.value.title,
+        ogTitle: subDomain.value.title,
+        description: subDomain.value.description,
+        ogDescription: subDomain.value.description,
+        ogImage: subDomain.value.image,
+        //   twitterCard
+        // : 'summary_large_image',
+    })
 
 </script>

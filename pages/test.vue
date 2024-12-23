@@ -32,7 +32,8 @@ const auth = ref(getAuth())
 useHead({
   title: 'My App',
   meta: [
-    { name: 'description', content: 'My amazing site.' }
+    { name: 'description', content: 'My amazing site.' },
+    { name:"google-site-verification", content:"Av7j1M46bxy_jgJ35Fe5r6ANfgFBkycLBSNkL5Pvom8" }
   ],
   bodyAttrs: {
     class: 'test'

@@ -29,7 +29,7 @@
             </template>
         </Menubar>
     </div>
-    <pre>{{ navigation }}</pre>
+    <!-- <pre>{{ navigation }}</pre> -->
 </template>
 
 <script setup>

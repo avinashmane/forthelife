@@ -54,7 +54,7 @@ const allRaces = useCollection($racesRef)//filter(,x=>!x?.status?.includes('noli
 const races = computed(() => orderBy(
   filter(allRaces.value, x => !x?.status?.includes('nolist')),
   'Date', 'desc'))
-console.log('route.params', route.params,)
+debug('route.params', route.params,)
 const ifRaceId = () => route.params?.id?.length
 const currentRace = computed(() => find(races.value, x => x.id == route.params.id))
 
