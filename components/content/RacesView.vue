@@ -2,7 +2,7 @@
   <!-- {{ raceStore.allRaces.map(x => x?.id) }} -->
   <!-- {{raceStore.filterById(pattern)}} -->
 
-  <DataView :value="raceStore.filterById(pattern)" paginator :rows="10" class="w-full" :pt="{content:{ class: 'flex flex-wrap justify-around gap-2'}}">
+  <DataView :value="raceStore.filterById(pattern)" paginator :rows="5" class="w-full" :pt="{content:{ class: 'flex flex-wrap justify-around gap-2'}}">
     <!-- <template #header>
               :sortOrder="sortOrder" :sortField="sortField"
                 <Select v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Date" @change="onSortChange($event)" />

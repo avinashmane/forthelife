@@ -30,6 +30,7 @@
     "nuxt-vuefire": "^1.0.4",
     "pinia": "^2.3.0",
     "primevue": "^4.2.1",
+    "reading-time": "^1.5.0",
     "unstorage": "^1.14.1"
   },
   "devDependencies": {

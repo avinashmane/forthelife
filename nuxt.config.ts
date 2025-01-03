@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module'
   ],
   pinia: {
-    storesDirs: ['./stores/**', './custom-folder/stores/**'],
+    storesDirs: ['./stores/**'],
   },
   // plugins: [
   //   ViteYaml(), // you may configure the plugin by passing in an object with the options listed below
@@ -88,7 +88,15 @@ export default defineNuxtConfig({
     }
     
   },
-  
+  hooks: {
+    "content:file:beforeInsert": (document) => {
+      if (document.extension === '.md') {
+        const { time } = require('reading-time')(document.text)
+
+        document.readingTime = time
+      }
+    }
+  },
   primevue: {
     options: {
         theme: {

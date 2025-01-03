@@ -29,7 +29,10 @@
             </template>
         </ContentDoc>
     </div> -->
-    <div v-else class="container m-1 p-1 md:m-4 md:p-4 min-h-screen " >
+    <div v-else class="container md:m-1 md:p-1  min-h-screen " >
+        <Card class="rounded-lg shadow-lg">
+      <template #content>
+
         <ContentDoc :path="`${subDomain.to}`">
 
             <template #default="{ doc }">
@@ -41,6 +44,8 @@
                 <h2>{{ subDomain.to }} document not found for {{ useRequestURL() }}</h2>
             </template>
         </ContentDoc>
+    </template>
+  </Card>
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <hr />
+    <!-- <hr /> -->
     <div class="flex items-center bg-blue-300 justify-around mt-2 py-2">
         <div>
 
