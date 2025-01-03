@@ -13,6 +13,7 @@ pcmcrunners:
   image: /img/pcmcrunners_logo.png
   to: /subdomains/pcmcrunners
   menus: races,about
+
 fit:
   name: Fit.ForThe.Life
   description: Best community for Runner in PCMC
@@ -23,7 +24,8 @@ werun:
   description: Annual fitness event exclusively for women and children
   image: /img/werun_logo.png
   keywords: woman, empowerment, internationalwomansday, iwd, women, girlpower, womenlifestyle, fitness, endurance, health, active, run, running, triathlon
-  to: /remote/subdomains/werun
+  to: https://werun.info
+  type: forwardURL
 
 pcmcathletics:
   name: PCMC Athletics
@@ -42,6 +44,7 @@ runpix:
   to: https://run-pix.web.app
   skipNav: true
   type: forwardURL
+
 fortraider:
   name: For Raider
   description: Hiking platform
@@ -49,18 +52,20 @@ fortraider:
   to: https://fort-raider.web.app
   skipNav: true
   type: forwardURL
+
 digitaltwin:
   name: Digital Twin
   description: Internet of Things for the modern world
   image: /img/digitaltwin_logo.png
-  to: digitaltwin.vue
+  to: /DigitalTwin
+  type: redirect
 
 insideathlete:
   name: Inside Athlete
   description: Fitness studio to sculpt your body with personal attention to bring out the best of Inside Athlete
   keywords: strength, training, discipline, lifestyle, fitness, endurance, health, active, run, running, triathlon
-  image: /img/mileageleague_logo.png
-  to: /subdomains/insideathlete
+  image: https://github.com/user-attachments/assets/75710715-d835-4d4a-8600-f595ad033dfd
+  to: /remote/subdomains/insideathlete
 
 blogs:
   name: Blogs

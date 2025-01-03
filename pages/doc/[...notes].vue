@@ -18,7 +18,7 @@
 </template>
 
   <script setup>
-  const { data: notes } = await useLazyAsyncData("my-notes", () =>
+  const { data: notes } = await useAsyncData("my-notes", () =>
     queryContent("/notes").find()
   );
   </script>

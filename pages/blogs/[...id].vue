@@ -31,7 +31,7 @@ const selected=ref(null)
 const route = useRoute()
 debug('route.params', route.params,)
 const blogId=ref(route.params?.id?.[0])
-const { data: blogs } = await useLazyAsyncData("my-blogs", () =>
+const { data: blogs } = await useAsyncData("my-blogs", () =>
     queryContent("/remote/blogs").find()
   );
 const blog=computed(()=>{

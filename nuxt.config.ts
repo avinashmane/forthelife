@@ -7,6 +7,7 @@ import {firebaseConfig} from './firebaseConfig'
 // import path from 'node:path'
 
 export default defineNuxtConfig({
+  runtimeConfig: {avinash:'mane'},
   vite:{
     plugins: [
       ViteYaml(), // you may configure the plugin by passing in an object with the options listed below
@@ -19,7 +20,13 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-vuefire',
     'nuxt-auth-utils',
+    '@pinia/nuxt',
+    '@nuxtjs/leaflet',
+    '@nuxt/test-utils/module'
   ],
+  pinia: {
+    storesDirs: ['./stores/**', './custom-folder/stores/**'],
+  },
   // plugins: [
   //   ViteYaml(), // you may configure the plugin by passing in an object with the options listed below
   // ],
@@ -87,12 +94,13 @@ export default defineNuxtConfig({
         theme: {
             preset: MyPreset
         }
-    }
+    },
   },
 
   vuefire: {
     // auth: true,
-    config: firebaseConfig
+    config: firebaseConfig,
+    avinash:'mane',
   },
   css: [],
   compatibilityDate: '2024-11-08'

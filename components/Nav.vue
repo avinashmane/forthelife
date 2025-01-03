@@ -4,10 +4,10 @@
         <Menubar :model="items">
             <template #start>
                 <ClientOnly>
-                    <img :src="getSiteLogo()" class="h-8"/>
+                    <img :src="getSiteLogo()" class="h-8" @dblclick="navigateTo('localhost:3000/')"/>
                 </ClientOnly>
                 <DevOnly>
-                    <a href="localhost:3000/">🏠</a>
+                    
                 </DevOnly>
                 
             </template>

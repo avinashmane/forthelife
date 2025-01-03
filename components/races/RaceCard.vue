@@ -1,5 +1,5 @@
 <template>
-    <Card :class="' '+(props.type=='mini'?'w-40':' lg:w-[45rem] mx-auto')" :pt="{ root:{ class:'bg-slate-50' }}">
+    <Card :class="' '+(props.type=='mini'?'w-full':' lg:w-[45rem] mx-auto')" :pt="{ root:{ class:'bg-slate-50' }}">
         <template #header>
             <div class="relative max-w-xl mx-auto ">
                 <img :src="imgLink(race.coverPage)" class="h-36 w-full object-cover rounded-xl" alt="Cover Image">
@@ -19,9 +19,9 @@
         </template>
         <template #content>
         <!-- mini -->
-        <div v-if="props.type=='mini'" class="flex flex-wrap w-full ">
+        <div v-if="props.type=='mini'" class="flex flex-wrap w-full gap-y-1">
             <span v-for="f in race.status"
-                class="mx-1 px-1 bg-blue-200 rounded-full text-sm">
+                class="mx-1 px-1 bg-blue-200 rounded-full text-sm ">
                 {{ f }}
             </span>
         </div>
@@ -46,14 +46,15 @@
         </template>
 
         <template #footer>
-            <div class="bottom-0">
-                <Button v-if="props.type=='mini'" >
+            <div class="bottom-0 align-bottom flex justify-between">
+                <Button v-if="props.type=='mini'">
                     <NuxtLink :to="`/races/${race.id}`" class="">View </NuxtLink>
                 </Button>
                 <Button v-else>
                     <a :href="`http://run-pix.web.app/e/${race.id}`" target="_blank">
                         Edit </a>
                 </Button>
+                <Button @click="router.back()" icon="pi pi-arrow-left">Back</Button>
             </div>
             </template>
         </Card>
@@ -65,6 +66,8 @@ const props = defineProps({
     type: String
 })
 import {omit,isArray,isObject,random,keys,orderBy} from 'lodash-es'
+const router = useRouter()
+
 const orderOfKeys=(race,_order=['Name','Date','Location'])=>orderBy(keys(race),x=>-_order.indexOf(x),'asc')
 
 const imgLink=(x) => x ? `https://storage.googleapis.com/run-pix.appspot.com/processed/${race.id}/${x}`

@@ -5,11 +5,11 @@
 
             {{ useHost().replace('default','') }}
 
-            <a ref="https://ForThe.life">For The Life, </a>
-            <a href="http://localhost:3000">Copyright @2024</a>
+            <a href="https://ForThe.life">For The Life, </a>
+            <a :href="useBaseUrl()">Copyright @2024</a>
         </div>
-        <a href="/terms">Terms</a>
-        <a href="/privacy">Privacy</a>
+        <NuxtLink href="/terms">Terms</NuxtLink>
+        <NuxtLink href="/privacy">Privacy</NuxtLink>
 
     </div>
 </template>

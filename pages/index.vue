@@ -14,7 +14,7 @@
 
     <iframe v-else-if="subDomain.type == 'forwardURL'" class="w-full h-screen" :src="subDomain.to"></iframe>
     <div v-else-if="subDomain.type == 'redirect'" v-on="navigateTo(subDomain.to)">Redirecting to {{ subDomain.to }}</div>
-
+    
     <!-- <div v-else-if="subDomain.type == 'localContent'" class="m-4">
         {{ site }}
         <ContentDoc :path="`/remote/subdomains/${site}`">
@@ -29,7 +29,7 @@
             </template>
         </ContentDoc>
     </div> -->
-    <div v-else class="w-full h-screen" :src="subDomain.to">
+    <div v-else class="container m-1 p-1 md:m-4 md:p-4 min-h-screen " >
         <ContentDoc :path="`${subDomain.to}`">
 
             <template #default="{ doc }">
@@ -37,7 +37,7 @@
             </template>
 
             <template #not-found>
-                {{ subDomain }}
+                <!-- {{ subDomain }} -->
                 <h2>{{ subDomain.to }} document not found for {{ useRequestURL() }}</h2>
             </template>
         </ContentDoc>
@@ -53,6 +53,12 @@ const subDomain = ref(config.subDomains[site.value] || { type: 'content' })
 const subDomains = ref(config.subDomains)
 // const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
 // debug(config.subDomains,useHost())
+// console.log(`${JSON.stringify(subDomain.value)} Directing to ${subDomain.value.to}`)
+if (subDomain.value.type == 'redirect') {
+    
+    navigateTo(subDomain.value.to)
+}
+
 
 useHead({
     title: subDomain.value.title,
